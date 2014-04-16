@@ -1,4 +1,6 @@
-package client;
+package localMachine;
+
+import java.rmi.Naming;
 
 public class Client {
 	private String nom;
@@ -8,7 +10,5 @@ public class Client {
 	public String getnom(){
 		return nom;
 	}
-	public void connecter(){
-	//	Interrogeable obj = (Interrogeable) Naming.lookup("rmi://"+ou+"/"+qui+num);
-	}
+	
 }
