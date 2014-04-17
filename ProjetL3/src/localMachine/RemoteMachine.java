@@ -1,20 +1,17 @@
-package remoteMachine;
+package localMachine;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import localMachine.Client;
-
-public class RemoteMachine<T> extends UnicastRemoteObject implements _RemoteMachine<T> {
-	private static final long serialVersionUID = 2674880711467464646L;
+public class RemoteMachine extends UnicastRemoteObject implements _RemoteMachine {
+	
+	protected RemoteMachine() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	/*
 	 * message à envoyer (?)
-	 */
-	T messageEnv;
-	/*
-	 * message reçu (envoye par l'un des client connect )
-	 */
-	T messageRecu;
+	
 	public RemoteMachine()throws RemoteException{
 		super();
 	}
@@ -23,8 +20,9 @@ public class RemoteMachine<T> extends UnicastRemoteObject implements _RemoteMach
 	 * envoie d'une message par l'objet distant (serveur)
 	 * 
 	 */
-	public T envoieMessage()throws RemoteException{
-		return messageEnv;
+	String messageEnv;
+	public void envoieMessage()throws RemoteException{
+		
 	}
 	/*
 	 * nom du client source de message
@@ -36,8 +34,9 @@ public class RemoteMachine<T> extends UnicastRemoteObject implements _RemoteMach
 	 * @param message : message à recevoir
 	 * @param clientSource : client qui a envoyé le message
 	 */
-	public void messageRecu (T message, Client clientSource) throws RemoteException{
-		messageRecu = message;
+	public void messageRecu (String message, Client clientSource) throws RemoteException{
+		String messageRecu = message;
 		nomClientSource = clientSource.getnom();
 	}
+		
 }
